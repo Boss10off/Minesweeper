@@ -157,15 +157,15 @@ class Minefield {
 	boolean isBlocked(int height,int length) {return field[height][length].getBlocked();}
 	//Check is the Game won??
 	void isGameWon() {
-		int nrOfGoodFields = field.length*field[0].length;
+		int nrOfFields = field.length*field[0].length;
 		for (Field[] fields : field) {
 			for (int k = 0; k < field[0].length; k++) {
 				if ((fields[k].getOpen()&&!fields[k].getMine())||(!fields[k].getOpen()&&fields[k].getMine())) {
-					nrOfGoodFields--;
+					nrOfFields--;
 				}
 			}
 		}
-		if (nrOfGoodFields == 0) {gameWon = true;}
+		if (nrOfFields == 0) {gameWon = true;}
 	}
 	//reset for a new game field
 	void newGame(){
